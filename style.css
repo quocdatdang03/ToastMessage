@@ -1,0 +1,167 @@
+* {
+    padding : 0;
+    margin : 0;
+    box-sizing : border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height : 100vh;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    background-color : #ecf0f1;
+}
+
+:root {
+    --success-color : #008000;
+    --warning-color : #ffa500;
+    --error-color : #ff0000;
+
+    --success-light-color : #8ec391;
+    --warning-light-color : #f4d291;
+    --error-light-color : #f49091;
+
+}
+
+
+button{
+    cursor : pointer;
+    outline : none;
+    border : none;
+    font-size : 18px;
+    padding : 10px 20px;
+    border-radius : 5px;
+    color : white;
+    margin : 0 10px;
+}
+
+.show-success {
+    background-color : #008000;
+}
+
+.show-warning {
+    background-color : #ffa500;
+}
+
+.show-error {
+    background-color : #ff0000;
+}
+
+
+/* Toast-message */
+#toast {
+    position : fixed;
+    top : 15px;
+    right : 10px;
+}
+
+.toast {
+    position : relative;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    margin-bottom : 20px;
+    padding : 18px 25px;
+    font-size : 20px;
+    color : white;
+    border-radius : 5px;
+    overflow : hidden;
+    
+    animation : showToast ease 3s forwards;
+}
+
+/* animtion for toast */
+@keyframes showToast {
+    0% {
+        transform : translateX(100%);
+    }
+
+    25% {
+        transform : translateX(-10%);
+    }
+
+    50% {
+        transform : translateX(0%);
+    }
+    
+    100% {
+        transform : translateX(0%);
+    }
+
+ 
+}
+
+
+@keyframes hideToast {
+    0% {
+        transform : translateX(0%);
+    }
+
+    25% {
+        transform : translateX(-10%);
+    }
+
+    50% {
+        transform : translateX(10px);
+    }
+
+    100% {
+        transform : translateX(200%);
+    }
+}
+
+
+.toast.success {
+    background-color : var(--success-light-color);
+    border-left : 6px solid var(--success-color);
+}
+
+.toast.error {
+    background-color : var(--error-light-color);
+    border-left : 6px solid var(--error-color);
+}
+
+.toast.warning {
+    background-color : var(--warning-light-color);
+    border-left : 6px solid var(--warning-color);
+}
+
+.cout-down {
+    position : absolute;
+    bottom : 0;
+    left : 0;
+    width : 100%;
+    border-bottom : 4px solid var(--success-color);
+    animation : loading ease 4s forwards;
+}
+
+/* animation for coutdown (border-bottom)*/
+@keyframes loading {
+    from {
+        width : 100%;
+    }
+    to {
+        width : 0%;
+    }
+}
+
+.toast.success .cout-down {
+    border-bottom : 4px solid var(--success-color);
+}
+
+.toast.warning .cout-down {
+    border-bottom : 4px solid var(--warning-color);
+}
+
+.toast.error .cout-down {
+    border-bottom : 4px solid var(--error-color);
+}
+
+.toast i {
+    font-size : 25px;
+    margin-right : 10px;
+}
